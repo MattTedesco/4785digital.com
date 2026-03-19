@@ -145,21 +145,21 @@
             <h2>Contact Us</h2>
             <p>Ready to grow? Let's chat today.</p>
           </div>
-          <div class="about-contact-card reveal">
+          <form class="about-contact-card reveal" id="about-contact-form">
             <div class="contact-form-field">
               <label for="about-name">Your Name</label>
               <input id="about-name" type="text" placeholder="Enter name">
             </div>
             <div class="contact-form-field">
               <label for="about-email">Email Address*</label>
-              <input id="about-email" type="email" placeholder="Enter email">
+              <input id="about-email" type="email" placeholder="Enter email" required>
             </div>
             <div class="contact-form-field">
               <label for="about-message">Message*</label>
-              <textarea id="about-message" rows="5" placeholder="Write message"></textarea>
+              <textarea id="about-message" rows="5" placeholder="Write message" required></textarea>
             </div>
-            <button class="button about-contact-button" type="button">Send Message</button>
-          </div>
+            <button class="button about-contact-button" type="submit">Send Message</button>
+          </form>
         </div>
       </div>
     </section>

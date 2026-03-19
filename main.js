@@ -75,3 +75,29 @@ const observer = new IntersectionObserver(
 document.querySelectorAll(".reveal").forEach((element) => {
   observer.observe(element);
 });
+
+const aboutContactForm = document.querySelector("#about-contact-form");
+
+if (aboutContactForm) {
+  aboutContactForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const name = document.querySelector("#about-name")?.value.trim() || "";
+    const email = document.querySelector("#about-email")?.value.trim() || "";
+    const message = document.querySelector("#about-message")?.value.trim() || "";
+
+    if (!email || !message) {
+      aboutContactForm.reportValidity();
+      return;
+    }
+
+    const subject = encodeURIComponent(
+      name ? `New website inquiry from ${name}` : "New website inquiry"
+    );
+    const body = encodeURIComponent(
+      `Name: ${name || "Not provided"}\nEmail: ${email}\n\nMessage:\n${message}`
+    );
+
+    window.location.href = `mailto:4785digital@gmail.com?subject=${subject}&body=${body}`;
+  });
+}
