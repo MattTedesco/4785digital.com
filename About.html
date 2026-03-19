@@ -145,20 +145,29 @@
             <h2>Contact Us</h2>
             <p>Ready to grow? Let's chat today.</p>
           </div>
-          <form class="about-contact-card reveal" id="about-contact-form">
+          <form
+            class="about-contact-card reveal"
+            id="about-contact-form"
+            action="https://formsubmit.co/ajax/4785digital@gmail.com"
+            method="POST"
+          >
             <div class="contact-form-field">
               <label for="about-name">Your Name</label>
-              <input id="about-name" type="text" placeholder="Enter name">
+              <input id="about-name" name="name" type="text" placeholder="Enter name">
             </div>
             <div class="contact-form-field">
               <label for="about-email">Email Address*</label>
-              <input id="about-email" type="email" placeholder="Enter email" required>
+              <input id="about-email" name="email" type="email" placeholder="Enter email" required>
             </div>
             <div class="contact-form-field">
               <label for="about-message">Message*</label>
-              <textarea id="about-message" rows="5" placeholder="Write message" required></textarea>
+              <textarea id="about-message" name="message" rows="5" placeholder="Write message" required></textarea>
             </div>
+            <input type="hidden" name="_subject" value="New 4785 Digital website inquiry">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="text" name="_honey" class="contact-honeypot" tabindex="-1" autocomplete="off">
             <button class="button about-contact-button" type="submit">Send Message</button>
+            <p class="contact-form-status" id="about-contact-status" aria-live="polite"></p>
           </form>
         </div>
       </div>

@@ -77,27 +77,54 @@ document.querySelectorAll(".reveal").forEach((element) => {
 });
 
 const aboutContactForm = document.querySelector("#about-contact-form");
+const aboutContactStatus = document.querySelector("#about-contact-status");
 
 if (aboutContactForm) {
   aboutContactForm.addEventListener("submit", (event) => {
     event.preventDefault();
-
-    const name = document.querySelector("#about-name")?.value.trim() || "";
-    const email = document.querySelector("#about-email")?.value.trim() || "";
-    const message = document.querySelector("#about-message")?.value.trim() || "";
-
-    if (!email || !message) {
-      aboutContactForm.reportValidity();
+    if (!aboutContactForm.reportValidity()) {
       return;
     }
 
-    const subject = encodeURIComponent(
-      name ? `New website inquiry from ${name}` : "New website inquiry"
-    );
-    const body = encodeURIComponent(
-      `Name: ${name || "Not provided"}\nEmail: ${email}\n\nMessage:\n${message}`
-    );
+    const submitButton = aboutContactForm.querySelector('button[type="submit"]');
+    const formData = new FormData(aboutContactForm);
 
-    window.location.href = `mailto:4785digital@gmail.com?subject=${subject}&body=${body}`;
+    if (aboutContactStatus) {
+      aboutContactStatus.textContent = "Sending...";
+    }
+
+    if (submitButton) {
+      submitButton.disabled = true;
+    }
+
+    fetch(aboutContactForm.action, {
+      method: "POST",
+      body: formData,
+      headers: {
+        Accept: "application/json",
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Request failed");
+        }
+        return response.json();
+      })
+      .then(() => {
+        aboutContactForm.reset();
+        if (aboutContactStatus) {
+          aboutContactStatus.textContent = "Message sent. We will get back to you soon.";
+        }
+      })
+      .catch(() => {
+        if (aboutContactStatus) {
+          aboutContactStatus.textContent = "There was a problem sending your message. Please email 4785digital@gmail.com directly.";
+        }
+      })
+      .finally(() => {
+        if (submitButton) {
+          submitButton.disabled = false;
+        }
+      });
   });
 }

@@ -853,9 +853,26 @@ h3 {
   resize: vertical;
 }
 
+.contact-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .about-contact-button {
   min-width: 220px;
   margin: 0 auto;
+}
+
+.contact-form-status {
+  min-height: 1.5em;
+  margin: 0.2rem 0 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.95rem;
 }
 
 .site-footer {
