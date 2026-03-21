@@ -335,10 +335,10 @@ a {
 }
 
 .feature-circle-media {
-  width: 325px;
-  height: 300px;
+  width: 260px;
+  height: 260px;
   margin: 0 auto 1rem;
-  border-radius: 20px;
+  border-radius: 50%;
   overflow: hidden;
   background: #dbdee3;
   box-shadow: var(--shadow);
