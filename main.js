@@ -78,55 +78,13 @@ document.querySelectorAll(".reveal").forEach((element) => {
     observer.observe(element);
 });
 
-const aboutContactForm = document.querySelector("#about-contact-form");
 const aboutContactStatus = document.querySelector("#about-contact-status");
 
-if (aboutContactForm) {
-    aboutContactForm.addEventListener("submit", (event) => {
-        event.preventDefault();
-        if (!aboutContactForm.reportValidity()) {
-            return;
-        }
-        const submitButton = aboutContactForm.querySelector('button[type="submit"]');
-        const formData = new FormData(aboutContactForm);
-
-        if (aboutContactStatus) {
-            aboutContactStatus.textContent = "Sending...";
-        }
-        if (submitButton) {
-            submitButton.disabled = true;
-        }
-
-        fetch(aboutContactForm.action, {
-            method: "POST",
-            body: formData,
-            headers: {
-                Accept: "application/json",
-            },
-        })
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error("Request failed");
-                }
-                return response.json();
-            })
-            .then(() => {
-                aboutContactForm.reset();
-                if (aboutContactStatus) {
-                    aboutContactStatus.textContent =
-                        "Message sent. We will get back to you soon.";
-                }
-            })
-            .catch(() => {
-                if (aboutContactStatus) {
-                    aboutContactStatus.textContent =
-                        "There was a problem sending your message. Please email info@4785digital.com directly.";
-                }
-            })
-            .finally(() => {
-                if (submitButton) {
-                    submitButton.disabled = false;
-                }
-            });
-    });
+if (
+    aboutContactStatus &&
+    window.location.pathname.toLowerCase().includes("about.html") &&
+    new URLSearchParams(window.location.search).get("submitted") === "1"
+) {
+    aboutContactStatus.textContent =
+        "Message sent. We will get back to you soon.";
 }
