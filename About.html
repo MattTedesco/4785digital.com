@@ -137,10 +137,10 @@
                         <p>Ready to grow? Let's chat today.</p>
                     </div>
 
-                    <form class="about-contact-card reveal" id="about-contact-form" action="https://formsubmit.co/ajax/info@4785digital.com" method="POST">
+                    <form class="about-contact-card reveal" id="about-contact-form" action="https://formsubmit.co/info@4785digital.com" method="POST">
                         <div class="contact-form-field">
                             <label for="about-name">Your Name</label>
-                            <input id="about-name" name="name" type="text" placeholder="Enter name">
+                            <input id="about-name" name="name" type="text" placeholder="Enter name" required>
                         </div>
                         <div class="contact-form-field">
                             <label for="about-email">Email Address*</label>
@@ -152,6 +152,7 @@
                         </div>
                         <input type="hidden" name="_subject" value="New 4785 Digital website inquiry">
                         <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_next" value="https://4785digital.com/About.html?submitted=1#contact">
                         <input type="text" name="_honey" class="contact-honeypot" tabindex="-1" autocomplete="off">
                         <button class="button about-contact-button" type="submit">Send Message</button>
                         <p class="contact-form-status" id="about-contact-status" aria-live="polite"></p>
