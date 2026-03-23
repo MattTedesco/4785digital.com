@@ -86,5 +86,5 @@ if (
     new URLSearchParams(window.location.search).get("submitted") === "1"
 ) {
     aboutContactStatus.textContent =
-        "Message sent. We will get back to you soon.";
+        "Thank you for your inquiry! We'll get back to you soon.";
 }
