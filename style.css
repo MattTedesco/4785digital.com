@@ -1,5 +1,5 @@
 :root {
-  --bg: #f3f3f3;
+  --bg: #eef2f7;
   --surface: #ffffff;
   --text: #1d2127;
   --muted: #626973;
@@ -302,9 +302,20 @@ a {
   margin: 0 auto;
 }
 
+.service-intro,
+.service-feature-circles,
+.service-offer,
+.process-section {
+  position: relative;
+  box-shadow: 0 0 0 100vmax transparent;
+  clip-path: inset(0 -100vmax);
+}
+
 .service-intro {
   padding: 1rem 0 1.5rem;
   text-align: center;
+  background: var(--bg);
+  box-shadow: 0 0 0 100vmax var(--bg);
 }
 
 .service-intro h1 {
@@ -327,7 +338,9 @@ a {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.25rem;
-  padding: 1rem 0 1.5rem;
+  padding: 2rem 0 2rem;
+  background: var(--bg);
+  box-shadow: 0 0 0 100vmax var(--bg);
 }
 
 .feature-circle-card {
@@ -335,10 +348,11 @@ a {
 }
 
 .feature-circle-media {
-  width: 260px;
-  height: 260px;
+  width: 100%;
+  max-width: 380px;
+  aspect-ratio: 1;
   margin: 0 auto 1rem;
-  border-radius: 50%;
+  border-radius: 20px;
   overflow: hidden;
   background: #dbdee3;
   box-shadow: var(--shadow);
@@ -367,6 +381,8 @@ a {
 .service-offer {
   padding-top: 2rem;
   padding-bottom: 2rem;
+  background: #fff;
+  box-shadow: 0 0 0 100vmax #fff;
 }
 
 .service-offer-heading {
@@ -391,6 +407,13 @@ a {
   gap: 1.1rem 2rem;
 }
 
+.offer-item {
+  background: var(--bg);
+  border-radius: 16px;
+  padding: 1.25rem;
+  border-left: 3px solid var(--accent);
+}
+
 .offer-item h3 {
   margin-bottom: 1rem;
   font-size: clamp(1.32rem, 1.75vw, 1.87rem);
@@ -404,7 +427,11 @@ a {
 }
 
 .process-section {
-  padding-top: 0.5rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  background: linear-gradient(180deg, #17314a 0%, #102337 100%);
+  box-shadow: 0 0 0 100vmax;
+  box-shadow: 0 0 0 100vmax #17314a;
 }
 
 .process-heading {
@@ -414,12 +441,13 @@ a {
 
 .process-heading h2 {
   font-size: clamp(2.35rem, 3.5vw, 3.7rem);
+  color: #fff;
 }
 
 .process-heading .lede {
   max-width: 46rem;
   margin: 0 auto;
-  color: var(--text);
+  color: rgba(255, 255, 255, 0.82);
 }
 
 .process-grid {
@@ -429,16 +457,16 @@ a {
 }
 
 .process-step {
-  background: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 22px;
   padding: 0.75rem;
-  box-shadow: var(--shadow);
 }
 
 .process-step span {
   display: inline-block;
   margin-bottom: 0.4rem;
-  color: var(--accent);
+  color: #5b9bd5;
   font-family: "Space Grotesk", sans-serif;
   font-size: 0.84rem;
   font-weight: 700;
@@ -448,16 +476,17 @@ a {
 .process-step h3 {
   margin-bottom: 0.4rem;
   font-size: 1.1rem;
+  color: #fff;
 }
 
 .process-step p {
-  color: var(--muted);
+  color: rgba(255, 255, 255, 0.75);
   font-size: 0.88rem;
   line-height: 1.5;
 }
 
 .services-overview {
-  background: #f3f3f3;
+  background: var(--bg);
 }
 
 .services-heading {
@@ -1090,8 +1119,7 @@ h3 {
   }
 
   .feature-circle-media {
-    width: 220px;
-    height: 220px;
+    max-width: 320px;
   }
 
   .feature-circle-copy p,
