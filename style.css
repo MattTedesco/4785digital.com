@@ -312,7 +312,7 @@ a {
 }
 
 .service-intro {
-  padding: 1rem 0 1.5rem;
+  padding: 2rem 0 2rem;
   text-align: center;
   background: var(--bg);
   box-shadow: 0 0 0 100vmax var(--bg);
@@ -343,8 +343,12 @@ a {
 }
 
 .feature-band {
-  padding: 3.5rem 0;
+  padding: 3rem 0;
   position: relative;
+}
+
+.feature-band + .feature-band {
+  margin-top: 0;
 }
 
 .feature-band:nth-child(odd) {
@@ -360,12 +364,12 @@ a {
 }
 
 .feature-band-inner {
-  max-width: var(--max-width);
+  max-width: 900px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 2rem;
   display: flex;
   align-items: center;
-  gap: 3rem;
+  gap: 2rem;
 }
 
 /* Odd rows: icon left, text right */
@@ -419,8 +423,8 @@ a {
 }
 
 .service-offer {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
   background: #f6f8fb;
   box-shadow: 0 0 0 100vmax #f6f8fb;
 }
@@ -467,11 +471,10 @@ a {
 }
 
 .process-section {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  background: linear-gradient(180deg, #17314a 0%, #102337 100%);
-  box-shadow: 0 0 0 100vmax;
-  box-shadow: 0 0 0 100vmax #17314a;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  background: #ffffff;
+  box-shadow: 0 0 0 100vmax #ffffff;
 }
 
 .process-heading {
@@ -481,13 +484,13 @@ a {
 
 .process-heading h2 {
   font-size: clamp(2rem, 2.98vw, 3.15rem);
-  color: #fff;
+  color: var(--text);
 }
 
 .process-heading .lede {
   max-width: 46rem;
   margin: 0 auto;
-  color: rgba(255, 255, 255, 0.82);
+  color: var(--muted);
 }
 
 .process-grid {
@@ -497,8 +500,8 @@ a {
 }
 
 .process-step {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(180deg, #17314a 0%, #102337 100%);
+  border: none;
   border-radius: 22px;
   padding: 0.75rem;
 }
