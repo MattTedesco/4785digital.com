@@ -363,27 +363,34 @@ a {
   margin: 0 auto;
   padding: 0 2rem;
   display: grid;
-  grid-template-columns: 1fr 80px 2fr 2fr 80px 1fr;
+  grid-template-columns: 1fr 4fr 4fr 4fr 4fr 1fr;
   align-items: center;
-  column-gap: 1.5rem;
 }
 
-/* Odd rows: icon in col 2, text in cols 3-4 */
+/* Content spans cols 2-5 as a flex row */
+.feature-band-inner .feature-icon-wrap,
+.feature-band-inner .feature-text {
+  grid-row: 1;
+}
+
+/* Odd rows: icon left, text right within cols 2-5 */
 .feature-band:nth-child(odd) .feature-icon-wrap {
   grid-column: 2;
   justify-self: start;
 }
 .feature-band:nth-child(odd) .feature-text {
-  grid-column: 3 / 5;
+  grid-column: 3 / 6;
+  padding-left: 20px;
 }
 
-/* Even rows: text in cols 3-4, icon in col 5 */
+/* Even rows: text left, icon right within cols 2-5 */
+.feature-band:nth-child(even) .feature-text {
+  grid-column: 2 / 5;
+  padding-right: 20px;
+}
 .feature-band:nth-child(even) .feature-icon-wrap {
   grid-column: 5;
   justify-self: end;
-}
-.feature-band:nth-child(even) .feature-text {
-  grid-column: 3 / 5;
 }
 
 .feature-icon-wrap {
@@ -428,8 +435,7 @@ a {
   box-shadow: 0 0 0 100vmax #f6f8fb;
   clip-path: inset(0 -100vmax);
   display: grid;
-  grid-template-columns: 1fr 80px 2fr 2fr 80px 1fr;
-  column-gap: 1.5rem;
+  grid-template-columns: 1fr 4fr 4fr 4fr 4fr 1fr;
 }
 
 .service-offer-heading {
@@ -483,8 +489,7 @@ a {
   box-shadow: 0 0 0 100vmax #ffffff;
   clip-path: inset(0 -100vmax);
   display: grid;
-  grid-template-columns: 1fr 80px 2fr 2fr 80px 1fr;
-  column-gap: 1.5rem;
+  grid-template-columns: 1fr 4fr 4fr 4fr 4fr 1fr;
 }
 
 .process-heading {
@@ -1176,18 +1181,20 @@ h3 {
   .feature-band-inner {
     grid-template-columns: 1fr !important;
     text-align: center;
-    gap: 1.5rem;
+    row-gap: 1rem;
   }
 
   .feature-band:nth-child(odd) .feature-icon-wrap,
   .feature-band:nth-child(even) .feature-icon-wrap {
-    grid-column: 1;
-    justify-self: center;
+    grid-column: 1 !important;
+    grid-row: auto !important;
+    justify-self: center !important;
   }
 
   .feature-band:nth-child(odd) .feature-text,
   .feature-band:nth-child(even) .feature-text {
-    grid-column: 1;
+    grid-column: 1 !important;
+    padding: 0 !important;
   }
 
   .feature-icon-wrap {
