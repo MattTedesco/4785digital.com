@@ -59,7 +59,7 @@ a {
   width: 100%;
   margin: 0;
   min-height: var(--nav-height);
-  padding: 0.25rem max(1rem, calc((100vw - var(--max-width)) / 2));
+  padding: 0.25rem max(1rem, calc((100vw - 1100px) / 2));
   background: #fff;
   border-bottom: 1px solid rgba(29, 33, 39, 0.06);
 }
@@ -766,7 +766,7 @@ h3 {
 .about-image-band,
 .about-story,
 .about-values {
-  width: min(calc(100% - 2rem), var(--max-width));
+  width: min(calc(100% - 2rem), 1100px);
   margin: 0 auto;
 }
 
