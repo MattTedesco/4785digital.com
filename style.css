@@ -298,7 +298,7 @@ a {
 .service-intro,
 .service-feature-circles,
 .service-offer {
-  width: min(calc(100% - 2rem), var(--max-width));
+  width: min(calc(100% - 2rem), 900px);
   margin: 0 auto;
 }
 
@@ -343,12 +343,8 @@ a {
 }
 
 .feature-band {
-  padding: 3rem 0;
+  padding: 4rem 0;
   position: relative;
-}
-
-.feature-band + .feature-band {
-  margin-top: 0;
 }
 
 .feature-band:nth-child(odd) {
@@ -471,6 +467,8 @@ a {
 }
 
 .process-section {
+  width: min(calc(100% - 2rem), 900px);
+  margin: 0 auto;
   padding-top: 4rem;
   padding-bottom: 4rem;
   background: #ffffff;
@@ -1068,20 +1066,20 @@ h3 {
 .reveal {
   opacity: 0;
   transform: translateY(22px);
-  transition: opacity 500ms ease, transform 500ms ease;
+  transition: opacity 600ms ease, transform 600ms ease;
 }
 
 .reveal-left {
-  transform: translateX(-42px);
+  transform: translateX(-50px);
 }
 
 .reveal-right {
-  transform: translateX(42px);
+  transform: translateX(50px);
 }
 
 .reveal.is-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translate(0, 0);
 }
 
 @media (max-width: 900px) {
