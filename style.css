@@ -295,13 +295,11 @@ a {
   padding-top: 0.5rem;
 }
 
-.service-intro,
 .service-feature-circles {
   width: min(calc(100% - 2rem), 1100px);
   margin: 0 auto;
 }
 
-.service-intro,
 .service-feature-circles,
 .service-offer,
 .process-section {
@@ -311,13 +309,19 @@ a {
 }
 
 .service-intro {
-  padding: 2rem 0 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
   text-align: center;
-  background: var(--bg);
-  box-shadow: 0 0 0 100vmax var(--bg);
+  background: #f4f7fb;
+  box-shadow: 0 0 0 100vmax #f4f7fb;
+  clip-path: inset(0 -100vmax);
+  display: grid;
+  grid-template-columns: 1fr 4fr 4fr 4fr 4fr 1fr;
 }
 
 .service-intro h1 {
+  grid-column: 2 / 6;
   margin: 0 0 1rem;
   font-family: "Space Grotesk", sans-serif;
   font-size: clamp(1.73rem, 2.9vw, 3.13rem);
@@ -326,8 +330,8 @@ a {
 }
 
 .service-intro-copy {
-  max-width: 70rem;
-  margin: 0 auto;
+  grid-column: 2 / 6;
+  margin: 0;
   font-size: clamp(0.89rem, 1.32vw, 1.12rem);
   line-height: 1.45;
   color: var(--text);
@@ -1202,11 +1206,14 @@ h3 {
     height: 64px;
   }
 
+  .service-intro,
   .service-offer,
   .process-section {
     grid-template-columns: 1fr !important;
   }
 
+  .service-intro h1,
+  .service-intro-copy,
   .service-offer-heading,
   .service-offer-grid,
   .process-heading,
