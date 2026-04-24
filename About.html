@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2GKPFM2FF3"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -151,9 +152,10 @@
                             <textarea id="about-message" name="message" rows="5" placeholder="Write message" required></textarea>
                         </div>
                         <input type="hidden" name="_subject" value="New 4785 Digital website inquiry">
-                        <input type="hidden" name="_captcha" value="true">
+                        <input type="hidden" name="_captcha" value="false">
                         <input type="hidden" name="_next" value="https://4785digital.com/About.html?submitted=1#contact">
                         <input type="text" name="_honey" class="contact-honeypot" tabindex="-1" autocomplete="off">
+                        <div class="cf-turnstile" data-sitekey="0x4AAAAAADChKSU401122uxZ" data-theme="light"></div>
                         <button class="button about-contact-button" type="submit">Send Message</button>
                         <p class="contact-form-status" id="about-contact-status" aria-live="polite"></p>
                     </form>
@@ -191,5 +193,19 @@
     </footer>
 
     <script src="main.js"></script>
+    <script>
+    (function() {
+        var form = document.getElementById('about-contact-form');
+        if (!form) return;
+        form.addEventListener('submit', function(e) {
+            var token = form.querySelector('[name="cf-turnstile-response"]');
+            if (!token || !token.value) {
+                e.preventDefault();
+                var status = document.getElementById('about-contact-status');
+                if (status) status.textContent = 'Please complete the verification before submitting.';
+            }
+        });
+    })();
+    </script>
 </body>
 </html>
