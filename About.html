@@ -195,12 +195,50 @@
         var form = document.getElementById('about-contact-form');
         if (!form) return;
         form.addEventListener('submit', function(e) {
+            e.preventDefault();
             var token = form.querySelector('[name="cf-turnstile-response"]');
+            var status = document.getElementById('about-contact-status');
+            var btn = form.querySelector('.about-contact-button');
+
             if (!token || !token.value) {
-                e.preventDefault();
-                var status = document.getElementById('about-contact-status');
                 if (status) status.textContent = 'Please complete the verification before submitting.';
+                status.style.color = '#c0392b';
+                return;
             }
+
+            btn.disabled = true;
+            btn.textContent = 'Sending...';
+
+            fetch('/api/contact', {
+                method: 'POST',
+                body: new FormData(form)
+            })
+            .then(function(res) { return res.json(); })
+            .then(function(data) {
+                if (data.success) {
+                    form.reset();
+                    if (status) {
+                        status.textContent = "Thank you for your inquiry. We'll get back to you within a business day.";
+                        status.style.color = '#27ae60';
+                    }
+                    if (window.turnstile) turnstile.reset();
+                } else {
+                    if (status) {
+                        status.textContent = data.error || 'Something went wrong. Please try again.';
+                        status.style.color = '#c0392b';
+                    }
+                }
+            })
+            .catch(function() {
+                if (status) {
+                    status.textContent = 'Something went wrong. Please try again.';
+                    status.style.color = '#c0392b';
+                }
+            })
+            .finally(function() {
+                btn.disabled = false;
+                btn.textContent = 'Send Message';
+            });
         });
     })();
     </script>

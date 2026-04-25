@@ -82,8 +82,7 @@ async function handleContactForm(request, env) {
       return new Response(JSON.stringify({ success: false, error: "Failed to send message. Please try again." }), { status: 500, headers });
     }
 
-    // Redirect back to the page with success param
-    return Response.redirect("https://4785digital.com/About.html?submitted=1#contact", 303);
+    return new Response(JSON.stringify({ success: true }), { status: 200, headers });
 
   } catch (err) {
     console.error("Worker error:", err);
