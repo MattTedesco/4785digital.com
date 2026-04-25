@@ -61,7 +61,7 @@ async function handleContactForm(request, env) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: "4785 Digital Website <onboarding@resend.dev>",
+        from: "4785 Digital Website <noreply@4785digital.com>",
         to: ["info@4785digital.com"],
         subject: `New 4785 Digital website inquiry from ${name}`,
         html: `
