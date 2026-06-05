@@ -215,9 +215,10 @@
       .then(function (r) { return r.json(); })
       .then(function (data) {
         removeTyping();
+        if (data.debug) console.error("Chatbot debug:", data.debug);
         var reply = data.reply || data.error || "Sorry, something went wrong.";
         addMsg("bot", reply);
-        history.push({ role: "assistant", content: reply });
+        if (data.reply) history.push({ role: "assistant", content: reply });
       })
       .catch(function () {
         removeTyping();

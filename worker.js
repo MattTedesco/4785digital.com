@@ -172,8 +172,8 @@ async function handleChat(request, env) {
 
     if (!response.ok) {
       const err = await response.text();
-      console.error("Anthropic API error:", err);
-      return new Response(JSON.stringify({ error: "Sorry, I'm having trouble right now. Please try again or contact us directly at info@4785digital.com." }), { status: 500, headers });
+      console.error("Anthropic API error:", response.status, err);
+      return new Response(JSON.stringify({ error: "Sorry, I'm having trouble right now. Please try again or contact us directly at info@4785digital.com.", debug: err }), { status: 500, headers });
     }
 
     const result = await response.json();
